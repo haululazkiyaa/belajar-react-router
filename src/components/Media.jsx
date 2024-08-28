@@ -39,22 +39,16 @@ const Media = () => {
   ];
 
   return (
-    <>
-      <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Media</h1>
-        <p className="text-gray-600 mb-8">Informasi seputar PaDi UMKM</p>
+    <main className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-2">Media</h1>
+      <p className="text-gray-600 mb-8">Informasi seputar PaDi UMKM</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {mediaItems.map((item, index) => (
-            <MediaCard key={index} {...item} />
-          ))}
-        </div>
-      </main>
-
-      <footer className="bg-white py-4 text-center text-gray-600 mt-12">
-        <p>&copy;2022-2025 Pasar Digital UMKM Indonesia</p>
-      </footer>
-    </>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {mediaItems.map((item, index) => (
+          <MediaCard key={index} {...item} />
+        ))}
+      </div>
+    </main>
   );
 };
 

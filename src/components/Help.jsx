@@ -1,19 +1,24 @@
 import React from "react";
 
 const TopicCard = ({ icon, title, topics }) => (
-  <div className="bg-white p-6 rounded-lg shadow-md">
-    <div className="flex items-center mb-4">
-      {icon}
-      <h3 className="text-xl font-semibold ml-2">{title}</h3>
+  <div className="bg-white border-[1px] border-[#DDF2E4] rounded-lg p-5 flex flex-col justify-between">
+    <div>
+      <div className="flex items-center mb-4">
+        <img src={icon} alt={title} className="w-[32px] object-cover" />
+        <h3 className="text-xl font-bold text-gray-600 ml-2">{title}</h3>
+      </div>
+      <ul className="space-y-2 mb-4">
+        {topics.map((topic, index) => (
+          <li
+            key={index}
+            className="text-[16px] font-bold text-[#686E76] hover:text-[#009EA9] cursor-pointer"
+          >
+            {topic}
+          </li>
+        ))}
+      </ul>
     </div>
-    <ul className="space-y-2 mb-4">
-      {topics.map((topic, index) => (
-        <li key={index} className="text-gray-600">
-          {topic}
-        </li>
-      ))}
-    </ul>
-    <button className="text-cyan-500 hover:text-cyan-600 font-semibold">
+    <button class="w-fit py-1 px-2 rounded border mt-2 border-[#009EA9] text-[#009EA9] hover:text-white hover:bg-[#009EA9]">
       Lihat Semua Artikel
     </button>
   </div>
@@ -22,7 +27,7 @@ const TopicCard = ({ icon, title, topics }) => (
 const Help = () => {
   const helpTopics = [
     {
-      icon: "#",
+      icon: "/images/ic-akun.png",
       title: "Akun",
       topics: [
         "Cara Buyer Batalkan Penawaran Tender Kilat",
@@ -32,7 +37,7 @@ const Help = () => {
       ],
     },
     {
-      icon: "#",
+      icon: "/images/ic-pembayaran.png",
       title: "Pemesanan",
       topics: [
         "Cara Terima dan Checkout Tender Kilat",
@@ -42,7 +47,7 @@ const Help = () => {
       ],
     },
     {
-      icon: "#",
+      icon: "/images/ic-pemesanan.png",
       title: "Pembayaran & Perpajakan",
       topics: [
         "Fitur Saldo Refund bagi Pembeli B2B PaDi UMKM",
@@ -54,7 +59,7 @@ const Help = () => {
   ];
 
   return (
-    <main className="container mx-auto px-4 py-12">
+    <main className="h-full mx-10 my-10 lg:my-20 xl:my-20 lg:mx-40 xl:mx-40 text-[#444B55]">
       <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
         Pilih Topik Sesuai Kendalamu
       </h1>

@@ -6,6 +6,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Help from "./components/Help";
 import Home from "./components/Home";
 import Media from "./components/Media";
 
@@ -31,7 +32,7 @@ function App() {
           <>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
-            <Route path="/help" element={<Media />}></Route>
+            <Route path="/help" element={<Help />}></Route>
             <Route path="/media" element={<Media />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
             <Route

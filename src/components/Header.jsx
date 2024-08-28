@@ -26,36 +26,34 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white shadow-md">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center">
-          <img
-            src="https://padiumkm.id/_next/static/media/logo.08a5ef96.svg"
-            alt="PaDi UMKM Logo"
-            className="h-10"
-          />
-        </div>
+    <header className="bg-white">
+      <div className="container lg:px-20 xl:px-40 px-10 py-4 flex items-center">
+        <a href="/" className="w-52">
+          <img src="/svgs/logo.svg" alt="PaDi UMKM Logo" className="h-[64px]" />
+        </a>
         <nav>
-          <ul className="flex space-x-6">
+          <ul className="lg:!flex max-lg:hidden  max-lg:w-full lg:space-x-10 max-lg:space-y-3 max-lg:my-4 text-[#212427] items-center">
             {listMenu.map((menu, index) => (
               <li key={index}>
                 <NavLink
                   to={menu.link}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-cyan-600"
-                      : "text-gray-600 hover:text-cyan-600"
+                      ? "text-[18px] text-[#212427] font-bold border-b-4 w-fit border-[#009EA9] hover:text-[#009EA9]"
+                      : "text-[18px] text-[#212427] hover:text-[#009EA9] py-2"
                   }
                 >
                   {menu.text}
                 </NavLink>
               </li>
             ))}
+            <li>
+              <button className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer max-lg:w-fit">
+                Login
+              </button>
+            </li>
           </ul>
         </nav>
-        <button className="bg-cyan-500 text-white px-4 py-2 rounded-md hover:bg-cyan-600 transition duration-300">
-          Login
-        </button>
       </div>
     </header>
   );

@@ -2,13 +2,14 @@ import "./App.css";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import About from "./components/About";
-import Contact from "./components/Contact";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Help from "./components/Help";
-import Home from "./components/Home";
-import Media from "./components/Media";
+import Help from "./pages/Help";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Media from "./pages/Media";
 import { useState } from "react";
 
 // Buat component baru, namanya Login.jsx
@@ -45,22 +46,7 @@ function App() {
           </>
         ) : (
           <>
-            <Route
-              path="*"
-              element={
-                <main class="h-full mx-10 my-10 lg:my-20 xl:my-20 lg:mx-40 xl:mx-40 text-[#444B55] text-center">
-                  <h1 class="text-4xl font-bold text-gray-800 mb-12">
-                    Silahkan login terlebih dahulu
-                  </h1>
-                  <button
-                    class="w-fit py-1 px-2 rounded border mt-2 border-[#009EA9] text-[#009EA9] hover:text-white hover:bg-[#009EA9]"
-                    onClick={handleLogin}
-                  >
-                    Login Sekarang!
-                  </button>
-                </main>
-              }
-            ></Route>
+            <Route path="*" element={<Login {...loginProps} />}></Route>
           </>
         )}
       </Routes>

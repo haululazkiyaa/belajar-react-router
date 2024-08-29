@@ -1,30 +1,8 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
+import { listMenu } from "../constants/menu";
 
 const Header = ({ isLogin, handleLogin, handleLogout }) => {
-  const listMenu = [
-    {
-      link: "/",
-      text: "Beranda",
-    },
-    {
-      link: "/about",
-      text: "Tentang Kami",
-    },
-    {
-      link: "/help",
-      text: "Bantuan",
-    },
-    {
-      link: "/media",
-      text: "Media",
-    },
-    {
-      link: "/contact",
-      text: "Kontak",
-    },
-  ];
-
   return (
     <header className="bg-white">
       <div className="container lg:px-20 xl:px-40 px-10 py-4 flex items-center">

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
 
-const Header = () => {
+const Header = ({ isLogin, handleLogin, handleLogout }) => {
   const listMenu = [
     {
       link: "/",
@@ -48,8 +48,11 @@ const Header = () => {
               </li>
             ))}
             <li>
-              <button className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer max-lg:w-fit">
-                Login
+              <button
+                className="border-[1px] border-[#009EA9] rounded-lg px-3 py-2 text-[#009EA9] cursor-pointer max-lg:w-fit"
+                onClick={isLogin ? handleLogout : handleLogin}
+              >
+                {isLogin ? "Logout" : "Login"}
               </button>
             </li>
           </ul>

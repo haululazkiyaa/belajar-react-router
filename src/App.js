@@ -9,35 +9,57 @@ import Header from "./components/Header";
 import Help from "./components/Help";
 import Home from "./components/Home";
 import Media from "./components/Media";
+import { useState } from "react";
 
 // Buat component baru, namanya Login.jsx
 // Jika dia belum login, maka akan dilempar ke halaman login
 // Jika sudah login, maka akan dilempar ke halaman dashboard
 
 function App() {
-  const isLogin = false; // redirect ke halaman login, jika true redirect ke halaman dashboard
+  const [isLogin, setIsLogin] = useState(false); // redirect ke halaman login, jika true redirect ke halaman dashboard
+
+  const handleLogin = () => {
+    setIsLogin(true);
+  };
+
+  const handleLogout = () => {
+    setIsLogin(false);
+  };
+
+  const loginProps = { isLogin, handleLogin, handleLogout };
 
   return (
     <Router>
-      <Header />
+      <Header {...loginProps} />
       <Routes>
         {/* Conditional rendering, ngecek sudah login apa belum */}
         {/* Kalau belum login dia hanya bisa akses halamon login */}
         {/* Belum bisa login */}
         {isLogin ? (
           <>
-            <Route path="*" element={<h1>Selamat datang kembali</h1>}></Route>
-          </>
-        ) : (
-          <>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
             <Route path="/help" element={<Help />}></Route>
             <Route path="/media" element={<Media />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
+          </>
+        ) : (
+          <>
             <Route
-              path="/login"
-              element={<h1>Silahkan login terlebih dahulu</h1>}
+              path="*"
+              element={
+                <main class="h-full mx-10 my-10 lg:my-20 xl:my-20 lg:mx-40 xl:mx-40 text-[#444B55] text-center">
+                  <h1 class="text-4xl font-bold text-gray-800 mb-12">
+                    Silahkan login terlebih dahulu
+                  </h1>
+                  <button
+                    class="w-fit py-1 px-2 rounded border mt-2 border-[#009EA9] text-[#009EA9] hover:text-white hover:bg-[#009EA9]"
+                    onClick={handleLogin}
+                  >
+                    Login Sekarang!
+                  </button>
+                </main>
+              }
             ></Route>
           </>
         )}
